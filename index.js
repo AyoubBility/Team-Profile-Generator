@@ -139,7 +139,12 @@ function addEngineer(){
                 return "Please enter at least one character.";
             }
         }
-    ])
+    ]).then(answers => {
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+        teamMembers.push(engineer);
+        idArray.push(answers.engineerId);
+        createTeam();
+    });
 }
 
 function addIntern(){
@@ -199,7 +204,12 @@ function addIntern(){
                 return "Please enter at least one character.";
             }
         }
-    ])
+    ]).then(answers => {
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        teamMembers.push(intern);
+        idArray.push(answers.internId);
+        createTeam();
+    });
 }
 
 function createTeam(){
